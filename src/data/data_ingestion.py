@@ -69,9 +69,9 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
 def main():
     try:
 
-        BUCKET_NAME = os.getenv["BUCKET_NAME"]
-        AWS_ACCESS_KEY = os.getenv["AWS_ACCESS_KEY_ID"]
-        AWS_SECRET_ACCESS_KEY = os.getenv["AWS_SECRET_ACCESS_KEY"]
+        BUCKET_NAME = os.getenv("BUCKET_NAME")
+        AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY_ID")
+        AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 
         params = load_params(params_path="params.yaml")
         test_size = params["data_ingestion"]["test_size"]
