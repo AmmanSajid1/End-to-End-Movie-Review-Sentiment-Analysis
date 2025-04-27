@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from src.logger import logging
+from logger import logging
 import mlflow
 import pickle 
 import os 
@@ -67,7 +67,7 @@ def normalize_text(text):
 
 # Below code block is for local use
 # -------------------------------------------------------------------------------------
-# mlflow.set_tracking_uri('MLFLOW TRACKING URI')
+# mlflow.set_tracking_uri('https://dagshub.com/AmmanSajid1/End-to-End-Movie-Review-Sentiment-Analysis.mlflow')
 # dagshub.init(repo_owner='AmmanSajid1', repo_name='End-to-End-Movie-Review-Sentiment-Analysis', mlflow=True)
 # -------------------------------------------------------------------------------------
 
