@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-from logger import logging
 import mlflow
 import pickle 
 import os 
@@ -15,8 +14,6 @@ import dagshub
 import warnings 
 warnings.simplefilter("ignore", UserWarning)
 warnings.filterwarnings("ignore")
-
-logger = logging.getLogger(__name__)
 
 lemmatizer = WordNetLemmatizer()
 stop_words = set(stopwords.words("english"))
@@ -118,9 +115,7 @@ def get_latest_model_version(model_name):
 
 model_version = get_latest_model_version(model_name)
 model_uri = f"models:/{model_name}/{model_version}"
-logging.info(f"Fetching latest model from: {model_uri}")
 model = mlflow.pyfunc.load_model(model_uri)
-logging.info("Model loaded successfully")
 vectorizer = pickle.load(open("./models/vectorizer.pkl", "rb"))
 
 # Routes
@@ -139,7 +134,6 @@ def predict():
 
     text = request.form["text"]
     if not text.strip():
-        logger.warning("Empty input received from user.")
         return render_template("index.html", result="Please enter some text for prediction.")
 
     # clean text
@@ -147,7 +141,6 @@ def predict():
     # Convert to features 
     features = vectorizer.transform([text])
     # Predict
-    logging.info("Making prediction")
     result = model.predict(features)
     prediction = result[0]
 
