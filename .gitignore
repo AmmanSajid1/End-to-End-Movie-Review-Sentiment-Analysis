@@ -176,3 +176,4 @@ cred.txt
 notebooks/IMDB.csv
 models/
 logs/
+data/
