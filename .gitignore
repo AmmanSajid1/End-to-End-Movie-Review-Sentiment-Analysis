@@ -174,3 +174,5 @@ cython_debug/
 .pypirc
 cred.txt
 notebooks/IMDB.csv
+models/
+logs/
