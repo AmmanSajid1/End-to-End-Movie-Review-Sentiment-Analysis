@@ -70,7 +70,7 @@ class TestModelLoading(unittest.TestCase):
         accuracy_new = accuracy_score(self.y_test, y_pred_new)
         precision_new = precision_score(self.y_test, y_pred_new)
         recall_new = recall_score(self.y_test, y_pred_new)
-        f1_new = f1_score(self.X_test, y_pred_new)
+        f1_new = f1_score(self.y_test, y_pred_new)
 
         # Define expected thresholds for the performance metrics
         expected_accuracy = 0.40
