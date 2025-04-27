@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import os 
-from dotenv import load_dotenv
 pd.set_option('future.no_silent_downcasting', True)
 
 import os
@@ -70,10 +69,9 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
 def main():
     try:
 
-        load_dotenv()
-        BUCKET_NAME = os.environ["BUCKET_NAME"]
-        AWS_ACCESS_KEY = os.environ["AWS_ACCESS_KEY_ID"]
-        AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
+        BUCKET_NAME = os.getenv["BUCKET_NAME"]
+        AWS_ACCESS_KEY = os.getenv["AWS_ACCESS_KEY_ID"]
+        AWS_SECRET_ACCESS_KEY = os.getenv["AWS_SECRET_ACCESS_KEY"]
 
         params = load_params(params_path="params.yaml")
         test_size = params["data_ingestion"]["test_size"]
